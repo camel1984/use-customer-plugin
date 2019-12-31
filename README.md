@@ -17,3 +17,4 @@ add this to your ~/.m2/setting.xml:
 then:
 
 mvn first:echo
+mvn first:echo -Decho.message="Hello Everybody"

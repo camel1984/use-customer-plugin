@@ -16,6 +16,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
+    <echo.message>Hello Everybody in property</echo.message>
   </properties>
 
   <dependencies>
@@ -29,6 +30,33 @@
 
   <build>
       <plugins>
+        <plugin>
+          <groupId>org.sonatype.mavenbook.plugins</groupId>
+          <artifactId>first-maven-plugin</artifactId>
+          <version>1.0-SNAPSHOT</version>
+          <executions>
+            <execution>
+              <id>first-execution</id>
+              <phase>generate-resources</phase>
+              <goals>
+                <goal>echo</goal>
+              </goals>
+              <configuration>
+                <message>The Eagle has Landed! first execution</message>
+              </configuration>
+            </execution>
+            <execution>
+              <id>second-execution</id>
+              <phase>validate</phase>
+              <goals>
+                <goal>echo</goal>
+              </goals>
+              <configuration>
+                <message>${project.version} second execution</message>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
         <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
         <plugin>
           <artifactId>maven-clean-plugin</artifactId>
